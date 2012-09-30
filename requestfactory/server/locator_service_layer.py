@@ -20,6 +20,7 @@
 from paste.webkit.wkrequest import HTTPRequest
 
 from requestfactory.server.service_layer_decorator import ServiceLayerDecorator
+from requestfactory.shared.locator import Locator
 
 
 class LocatorServiceLayer(ServiceLayerDecorator):
