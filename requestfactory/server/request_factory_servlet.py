@@ -16,7 +16,7 @@
 import logging
 
 from requestfactory.server.default_exception_handler import DefaultExceptionHandler
-from requestfactory.shared.RequestFactory import RequestFactory
+from requestfactory.shared.request_factory import RequestFactory
 from requestfactory.server.service_layer import ServiceLayer
 from requestfactory.server.simple_request_processor import SimpleRequestProcessor
 
@@ -35,7 +35,7 @@ JSON_CONTENT_TYPE = 'application/json'
 LOGGER = logging.getLogger(__name__)
 
 
-class RequestFactoryServlet(HttpServlet):
+class RequestFactoryServlet(HTTPServlet):
     """Handles GWT RequestFactory JSON requests."""
 
 

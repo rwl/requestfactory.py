@@ -21,7 +21,8 @@ from requestfactory.server.resolver_service_layer import ResolverServiceLayer
 from requestfactory.server.reflective_service_layer import ReflectiveServiceLayer
 
 
-gwt_rf_ServiceLayerCache = True
+# Provides a flag to disable the ServiceLayerCache for debugging purposes.
+ENABLE_CACHE = True
 
 
 class ServiceLayer(object):
@@ -36,9 +37,6 @@ class ServiceLayer(object):
     # ServiceLayerDecorator in order to keep this interface as clean as
     # possible.
 
-    # Provides a flag to disable the ServiceLayerCache for debugging purposes.
-    _ENABLE_CACHE = gwt_rf_ServiceLayerCache
-
     @classmethod
     def create(cls, *decorators):
         """Create a RequestFactory ServiceLayer that is optionally modified by the
@@ -50,7 +48,7 @@ class ServiceLayer(object):
         """
         layers = list()
         # Always hit the cache first
-        cache = ServiceLayerCache() if cls._ENABLE_CACHE else ServiceLayerDecorator()
+        cache = ServiceLayerCache() if ENABLE_CACHE else ServiceLayerDecorator()
         layers.append(cache)
         # The the user-provided decorators
         if decorators is not None:
