@@ -18,8 +18,7 @@ try:
 except ImportError:
     from ordereddict import OrderedDict
 
-from requestfactory.server.unexpected_exception import UnexpectedException
-from requestfactory.server.reportable_exception import ReportableException
+from requestfactory.server.exceptions import UnexpectedException, ReportableException
 from requestfactory.server.request_state import RequestState
 from requestfactory.server.default_exception_handler import DefaultExceptionHandler
 
